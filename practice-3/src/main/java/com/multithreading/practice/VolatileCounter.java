@@ -5,6 +5,15 @@ package com.multithreading.practice;
  * ВАЖНО: volatile не гарантирует атомарность операции increment!
  */
 public class VolatileCounter {
+    private volatile int count;
 
+    public void increment() {
+        count++;
+    }
+
+    public int getCount() {
+        return count;
+    }
 }
+
 
