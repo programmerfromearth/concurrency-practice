@@ -16,5 +16,15 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class VirtualThreadExecutor {
 
+    public int executeWithVirtualThreads(List<Runnable> tasks) {
+        int count = 0;
+        try (ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor()) {
+            for (Runnable task : tasks) {
+                executorService.submit(task);
+                count++;
+            }
+        }
+        return count;
+    }
 }
 
